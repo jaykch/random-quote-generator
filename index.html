@@ -8,21 +8,39 @@
     <script src="index.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         body {
             height: 100vh;
             width: 100vw;
-            background: #f07f7f;
             display: flex;
             align-items: center;
         }
-        blockquote{
-            border:none;
+
+        .change-bg-colour {
+            border: none !important;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        #quote{
+            color: #f07f7f;
+        }
+
+        blockquote {
+            border: none;
+        }
+
+        button.twitter > i {
+            font-size: 20px;
         }
     </style>
 </head>
-<body>
+<body class="change-bg-colour">
 <div class="container">
     <div class="row">
         <div class="col-md-4 well col-md-offset-4">
@@ -31,9 +49,11 @@
                 <footer><cite id="author"></cite>
                 </footer>
             </blockquote>
-            <button class="btn btn-default" onclick="tweet()">Tweet</button>
-            <button class="btn btn-default" onclick="getQuote()">Randomise Quote</button>
+            <button class="btn btn-default twitter change-bg-colour" onclick="tweet()"><i class="fa fa-twitter" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-default col-md-offset-5 change-bg-colour" onclick="getQuote()">Randomise Quote</button>
         </div>
+
     </div>
     <footer>
         <div class="row text-center">
