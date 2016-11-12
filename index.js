@@ -42,7 +42,8 @@ function tweet() {
 }
 
 function getQuote() {
-    $.ajax({
+    //Mashape API - quotes aren't that great
+    /*$.ajax({
         headers: {
             "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V",
             Accept: "application/json",
@@ -61,5 +62,16 @@ function getQuote() {
         error: function (err) {
             alert(err);
         }
+    });*/
+
+    //forismatic API, quotes are really nice and I can see myself using it
+    $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?", function(data){
+        quote = data.quoteText;
+        author = data.quoteAuthor;
+        view.renderQuote(quote);
+        view.renderAuthor(author);
+        view.changeColor();
+    }).fail(function(error){
+        throw error;
     });
 }
