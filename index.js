@@ -6,7 +6,7 @@ $(document).ready(function () {
 var quote = "";
 var author = "";
 
-var view = (function () {
+var View = (function () {
     var currentColor;
 
     var renderQuote = function (x) {
@@ -68,9 +68,9 @@ function getQuote() {
     $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?", function(data){
         quote = data.quoteText;
         author = data.quoteAuthor;
-        view.renderQuote(quote);
-        view.renderAuthor(author);
-        view.changeColor();
+        View.renderQuote(quote);
+        View.renderAuthor(author);
+        View.changeColor();
     }).fail(function(error){
         throw error;
     });
