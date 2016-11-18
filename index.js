@@ -8,6 +8,7 @@ var author = "";
 
 var View = (function () {
     var currentColor;
+    var lastColor;
 
     var renderQuote = function (x) {
         $('#quote').html("<p><strong>" + x + "</p></strong>");
@@ -23,11 +24,15 @@ var View = (function () {
     };
 
     var colors = ["#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50",
-        "#8BC34A", "#FFC107", "#FF9800", "#FF5722", "#795548", "#9E9E9E", "#607D8B", "#"];
+        "#8BC34A", "#FFC107", "#FF5722", "#795548", "#9E9E9E", "#607D8B"];
 
     var _randomizeColor = function () {
-        var selector = Math.floor((Math.random() * 20) + 1) - 1;
-        currentColor = colors[selector];
+        var selector;
+        while (currentColor == lastColor){
+            selector = Math.floor((Math.random() * colors.length) + 1) - 1;
+            currentColor = colors[selector];
+        }
+        lastColor = currentColor;
     };
 
     return {
