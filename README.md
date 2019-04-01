@@ -2,4 +2,4 @@
 
 Random quote generator using bootstrap and revealing module javascript
 
-http://jaykch.com/projects/random-quote-generator/
+https://jaykch.github.io/random-quote-generator/
